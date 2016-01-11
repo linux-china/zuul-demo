@@ -31,6 +31,7 @@ public class AuthFilter extends ZuulFilter {
     }
 
     public boolean shouldFilter() {
+        RequestContext requestContext = RequestContext.getCurrentContext();
         return true;
     }
 
