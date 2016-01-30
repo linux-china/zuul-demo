@@ -43,4 +43,19 @@ public class AuthFilter extends ZuulFilter {
         ctx.addZuulRequestHeader("AccountId", "xxx");
         return null;
     }
+
+    /**
+     * Reports an error message given a response body and code.
+     *
+     * @param body http bodybody
+     * @param code http status code
+     */
+    private void setFailedRequest(String body, int code) {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        ctx.setResponseStatusCode(code);
+        if (ctx.getResponseBody() == null) {
+            ctx.setResponseBody(body);
+        }
+        ctx.setSendZuulResponse(false);
+    }
 }
