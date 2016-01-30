@@ -31,14 +31,16 @@ public class AuthFilter extends ZuulFilter {
     }
 
     public boolean shouldFilter() {
-        RequestContext requestContext = RequestContext.getCurrentContext();
+        RequestContext ctx = RequestContext.getCurrentContext();
+        final String requestURI = this.urlPathHelper.getPathWithinApplication(ctx.getRequest());
         return true;
     }
 
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         final String requestURI = this.urlPathHelper.getPathWithinApplication(ctx.getRequest());
-        ProxyRouteLocator.ProxyRouteSpec route = this.routeLocator.getMatchingRoute(requestURI);
+        String account = ctx.getRequest().getHeader("Token");
+        ctx.addZuulRequestHeader("AccountId", "xxx");
         return null;
     }
 }
