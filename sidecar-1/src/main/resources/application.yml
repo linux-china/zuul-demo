@@ -1,5 +1,7 @@
 server:
   port: 5678
+management:
+  port: 5679
 spring:
   application:
     name: mvnsearch
@@ -19,3 +21,4 @@ zuul:
       path: /mvnsearch/**
       url: http://www.mvnsearch.org
       stripPrefix: true
+
