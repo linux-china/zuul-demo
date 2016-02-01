@@ -18,6 +18,7 @@
     <modules>
         <module>eureka-server</module>
         <module>user-service</module>
+        <module>sidecar-1</module>
         <module>zuul-proxy</module>
     </modules>
 
@@ -47,7 +48,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-parent</artifactId>
-                <version>Angel.SR4</version>
+                <version>Angel.SR6</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
